@@ -1,0 +1,8 @@
+en:
+  errors:
+
+    messages:
+      blank: "blank"
+
+    access_key_athentication:
+      invalid: "invalid_access_key_password"

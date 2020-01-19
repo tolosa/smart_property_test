@@ -33,6 +33,9 @@ gem 'apipie-rails', '0.5.6'
 
 gem 'bcrypt'
 
+gem 'factory_bot_rails', '~> 4.0'
+gem 'faker'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -58,8 +61,6 @@ group :test do
 
   gem "minitest-spec-rails"
 
-  gem 'ffaker'
-
   gem 'database_cleaner'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
@@ -68,8 +69,6 @@ group :test do
   gem 'webdrivers'
 
   gem 'selenium-webdriver'
-
-  gem 'factory_bot_rails', '~> 4.0'
 
   gem 'json_expressions'
 

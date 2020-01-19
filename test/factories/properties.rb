@@ -6,7 +6,7 @@ FactoryBot.define do
 
     trait :with_units do
       after(:create) do |property, evaluator|
-        create_list(:unit, Faker::Number.within(range: 1..5), property: property)
+        create_list(:unit, Faker::Number.within(range: 0..4), property: property)
       end
     end
   end

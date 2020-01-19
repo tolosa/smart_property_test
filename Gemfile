@@ -59,9 +59,8 @@ group :test do
 
   gem 'minitest-rails'
 
-  gem "minitest-spec-rails"
+  gem 'minitest-spec-rails'
 
-  gem 'database_cleaner'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
 

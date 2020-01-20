@@ -1,13 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const Hello = props => (
-  <div>Hello {props.name}!</div>
-)
+import Index from '../application/index'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Hello name="React" />,
+    <Index />,
     document.body.appendChild(document.createElement('div')),
   )
 })

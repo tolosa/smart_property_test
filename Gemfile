@@ -17,21 +17,14 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
-
 # Reduces boot times through caching; required in config/boot.rb
-
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'apipie-rails', '0.5.6'
 
 gem 'bcrypt'
+gem 'factory_bot_rails', '~> 4.0'
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -49,30 +42,14 @@ end
 
 group :test do
   gem 'pry'
-
   gem 'pry-byebug'
-
   gem 'minitest'
-
   gem 'minitest-rails'
-
-  gem "minitest-spec-rails"
-
-  gem 'ffaker'
-
-  gem 'database_cleaner'
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
-
-  # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
-
+  gem 'minitest-spec-rails'
+  gem 'capybara', '>= 2.15' # Adds support for Capybara system testing and selenium driver
+  gem 'webdrivers' # Easy installation and use of web drivers to run system tests with browsers
   gem 'selenium-webdriver'
-
-  gem 'factory_bot_rails', '~> 4.0'
-
   gem 'json_expressions'
-
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

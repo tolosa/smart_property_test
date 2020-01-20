@@ -48,6 +48,7 @@ group :test do
   gem 'webdrivers' # Easy installation and use of web drivers to run system tests with browsers
   gem 'selenium-webdriver'
   gem 'json_expressions'
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

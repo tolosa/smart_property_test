@@ -1,3 +1,5 @@
+require_relative '../../_pattern.rb'
+
 class Api::V1::TenantPattern < Pattern
   def initialize(tenant = nil)
     if tenant

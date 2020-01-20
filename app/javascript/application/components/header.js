@@ -1,8 +1,9 @@
 import React from 'react'
+import { Navbar, NavbarBrand } from 'reactstrap'
 
 const Header = props =>
-  <nav className="navbar navbar-dark bg-primary">
-    <a className="navbar-brand" href="#">{props.title}</a>
-  </nav>
+  <Navbar dark="true" color="primary">
+    <NavbarBrand>{props.title}</NavbarBrand>
+  </Navbar>
 
 export default Header

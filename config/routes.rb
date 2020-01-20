@@ -6,4 +6,8 @@ Rails.application.routes.draw do
       resources :api_sessions, only: [:create]
     end
   end
+
+  resources :properties, only: :index
+
+  root 'properties#index'
 end

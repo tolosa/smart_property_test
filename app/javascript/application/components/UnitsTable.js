@@ -11,7 +11,7 @@ const UnitsTable = props => {
       </thead>
       <tbody>
         {props.units.map((unit, index) =>
-          <tr>
+          <tr key={unit.id}>
             <td>{unit.number}</td>
             <td>{unit.area}</td>
           </tr>

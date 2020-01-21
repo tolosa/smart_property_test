@@ -14,7 +14,7 @@ const PropertiesTable = props => {
       </thead>
       <tbody>
         {props.properties.map((property, index) =>
-          <PropertyRow property={property} />
+          <PropertyRow property={property} key={property.id} />
         )}
       </tbody>
     </table>

@@ -11,7 +11,7 @@ const PropertyRow = props => {
         <td>{props.property.address}</td>
       </tr>
       <tr>
-        <td colspan="3">
+        <td colSpan="3">
           <UnitsTable units={props.property.units} />
         </td>
       </tr>

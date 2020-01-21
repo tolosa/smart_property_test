@@ -2,12 +2,12 @@ require 'test_helper'
 
 module Api
   module V1
-    class CreateApiSessionTest < Api::ApiIntegrationTest
-      let(:tenant) { FactoryBot.create(:tenant, password: "password", api_key: nil) }
+    class ListPropertiesTest < Api::ApiIntegrationTest
+      let(:tenant) { FactoryBot.create(:tenant) }
       let(:properties) { FactoryBot.create_list(:property, 3, :with_units) }
 
       before(:each) do
-        properties
+        tenant; properties
       end
 
       test '[Example] returns a list of properties' do

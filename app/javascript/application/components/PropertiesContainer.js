@@ -15,7 +15,7 @@ const PropertiesContainer = props => {
   }, [])
 
   return(
-    <div class="container">
+    <div className="container">
       <PropertiesTable properties={properties} />
     </div>
   )

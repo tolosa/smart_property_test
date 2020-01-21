@@ -1,5 +1,7 @@
 import React from 'react'
 
+import PropertyRow from './PropertyRow'
+
 const PropertiesTable = props => {
   return (
     <table className="table mt-5">
@@ -12,11 +14,7 @@ const PropertiesTable = props => {
       </thead>
       <tbody>
         {props.properties.map((property, index) =>
-          <tr>
-            <td>{property.name}</td>
-            <td>{property.description}</td>
-            <td>{property.address}</td>
-          </tr>
+          <PropertyRow property={property} />
         )}
       </tbody>
     </table>

@@ -1,0 +1,159 @@
+{
+  "v1-api_sessions#create": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/api_sessions",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "access_key": "fake_key",
+        "password": "password"
+      },
+      "response_data": {
+        "errors": {
+          "base": "invalid_access_key_password"
+        }
+      },
+      "code": 422,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/api_sessions",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "access_key": "",
+        "password": "password"
+      },
+      "response_data": {
+        "errors": {
+          "access_key": [
+            "blank"
+          ]
+        }
+      },
+      "code": 422,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/api_sessions",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "access_key": "6PgBXriwrhBMKiYY",
+        "password": ""
+      },
+      "response_data": {
+        "errors": {
+          "password": [
+            "blank"
+          ]
+        }
+      },
+      "code": 422,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/api_sessions",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "access_key": "ZXaSkUCG7t4EhqRY",
+        "password": "password"
+      },
+      "response_data": {
+        "id": "20bd783e-7eea-45e0-9758-2644dfe2420c",
+        "name": "Jimmy",
+        "api_key": "Vw9kJBdgnh3TU7QGSPS95pGKtHsuJtDsVa1SYcTEoeIbpPkhOpleW0TzNt2zNh2tNovexypV55ql51eyGV5CkQ"
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "v1-properties#index": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/properties",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": [
+        {
+          "id": "0c1f0a14-224d-46f7-808b-a895708fb0cf",
+          "name": "Waelchi-Reilly",
+          "description": "Fundamental 3rd generation circuit",
+          "address": "865 Willetta Loop",
+          "units": [
+
+          ]
+        },
+        {
+          "id": "3bf45b03-ae6e-406b-b54b-319e73210e0f",
+          "name": "Waters-Vandervort",
+          "description": "Fully-configurable zero defect extranet",
+          "address": "8970 Braun Way",
+          "units": [
+            {
+              "id": "d324310f-ecdf-43f4-98d8-ac2870339fe5",
+              "number": 18,
+              "area": "Royal Crossing"
+            },
+            {
+              "id": "0539af52-5232-4121-bc03-a733d55fda0d",
+              "number": 45,
+              "area": "Pine Place"
+            }
+          ]
+        },
+        {
+          "id": "211cccd0-6b13-4578-8bfe-96030a2a20c6",
+          "name": "Cassin Group",
+          "description": "Ameliorated eco-centric superstructure",
+          "address": "8551 Bahringer Station",
+          "units": [
+            {
+              "id": "fe22a45f-4ea3-4ff3-8783-fdb347759c19",
+              "number": 14,
+              "area": "Royal Place"
+            },
+            {
+              "id": "073d2629-f111-4044-b144-7705627ddf02",
+              "number": 2,
+              "area": "Summer Square"
+            },
+            {
+              "id": "ce0b6ada-d40a-4253-ad62-e89ba14f7490",
+              "number": 30,
+              "area": "Autumn Place"
+            },
+            {
+              "id": "cb4a8426-d5af-458b-8734-bc19de238412",
+              "number": 26,
+              "area": "Pine Estates"
+            }
+          ]
+        }
+      ],
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ]
+}

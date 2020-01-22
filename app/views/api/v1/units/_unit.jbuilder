@@ -1,0 +1,1 @@
+json.(unit, :id, :number, :area)

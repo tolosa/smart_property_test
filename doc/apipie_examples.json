@@ -1,0 +1,334 @@
+{
+  "v1-api_sessions#create": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/api_sessions",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "access_key": "fake_key",
+        "password": "password"
+      },
+      "response_data": {
+        "errors": {
+          "base": "invalid_access_key_password"
+        }
+      },
+      "code": 422,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/api_sessions",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "access_key": "-hP6zsSToUDad9hb",
+        "password": "password"
+      },
+      "response_data": {
+        "id": "cf1c4e36-9ff6-4cbd-9b2a-ff60572a8c33",
+        "name": "Brant",
+        "api_key": "X-IWBli-2gwN2fchmDvXcXUbT9Igz5UKaLjRCP4dRRvR-CByJfk4UToeIZV_vsaYmE8YySzvpecratRikZl0Yw"
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/api_sessions",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "access_key": "",
+        "password": "password"
+      },
+      "response_data": {
+        "errors": {
+          "access_key": [
+            "blank"
+          ]
+        }
+      },
+      "code": 422,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/api_sessions",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "access_key": "I-cPwRRN0e6IlOA8",
+        "password": ""
+      },
+      "response_data": {
+        "errors": {
+          "password": [
+            "blank"
+          ]
+        }
+      },
+      "code": 422,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "v1-properties#archive": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/properties/9869cb68-9890-4100-a2ad-67a410b45ef4/archive",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+      },
+      "response_data": {
+        "id": "9869cb68-9890-4100-a2ad-67a410b45ef4",
+        "name": "Koch-Gulgowski",
+        "description": "Customizable bandwidth-monitored orchestration",
+        "address": "5460 Woodrow Course",
+        "units": [
+
+        ]
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "v1-properties#create": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/properties",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "name": "Hand, Maggio and Heaney",
+        "description": "Synergistic dynamic analyzer",
+        "address": "855 Haley Shores",
+        "units_attributes": [
+          {
+            "number": 1,
+            "area": "Eagle Crossing"
+          },
+          {
+            "number": 31,
+            "area": "Pine Village"
+          },
+          {
+            "number": 27,
+            "area": "Pine Oaks"
+          }
+        ]
+      },
+      "response_data": {
+        "id": "639754bd-0b94-4c28-ba64-248062700908",
+        "name": "Hand, Maggio and Heaney",
+        "description": "Synergistic dynamic analyzer",
+        "address": "855 Haley Shores",
+        "units": [
+          {
+            "id": "39f50fe5-9e04-4c73-8af2-73c3d5ca3e38",
+            "number": 1,
+            "area": "Eagle Crossing"
+          },
+          {
+            "id": "7de33919-c016-4f66-8aaf-118f0688a632",
+            "number": 31,
+            "area": "Pine Village"
+          },
+          {
+            "id": "2128d930-a95a-4b8a-bc6d-2ef7ea4f90cc",
+            "number": 27,
+            "area": "Pine Oaks"
+          }
+        ]
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "v1-properties#index": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/properties",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": [
+        {
+          "id": "59a9ec5d-9e6e-42ae-8ad8-18c9e604bd95",
+          "name": "Rohan, Collier and Halvorson",
+          "description": "Devolved coherent groupware",
+          "address": "8828 Brown Plains",
+          "units": [
+
+          ]
+        },
+        {
+          "id": "d45c64c9-4092-4fb4-b495-9cceaede5718",
+          "name": "Raynor LLC",
+          "description": "Fully-configurable tangible knowledge base",
+          "address": "5723 Howell Rapids",
+          "units": [
+            {
+              "id": "210865c2-1cf5-4d43-b09c-2db7c98cac6c",
+              "number": 11,
+              "area": "University Square"
+            },
+            {
+              "id": "866c2093-2906-4412-bb67-94a4be7caa50",
+              "number": 23,
+              "area": "Park Pointe"
+            },
+            {
+              "id": "39d2364d-cd37-41d8-bb50-e6f683d42f15",
+              "number": 5,
+              "area": "Paradise Crossing"
+            }
+          ]
+        },
+        {
+          "id": "fda0edd9-11e0-4599-9812-1528e379d0ca",
+          "name": "Shanahan, Swaniawski and Zieme",
+          "description": "Monitored well-modulated productivity",
+          "address": "67165 Koepp Islands",
+          "units": [
+            {
+              "id": "3611fe83-53d6-4b30-b8fc-7f13cb298333",
+              "number": 38,
+              "area": "Royal Gardens"
+            }
+          ]
+        }
+      ],
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "v1-properties#restore": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/properties/6a4f45fd-1e9a-4cf8-813e-4cb8ac57ae73/restore",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+      },
+      "response_data": {
+        "id": "6a4f45fd-1e9a-4cf8-813e-4cb8ac57ae73",
+        "name": "Kirlin-Senger",
+        "description": "Multi-channelled bottom-line throughput",
+        "address": "69606 Arlena Views",
+        "units": [
+
+        ]
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "v1-properties#update": [
+    {
+      "verb": "PUT",
+      "path": "/api/v1/properties/101558c2-57b3-450e-825e-c5eca57fcd4d",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "id": "101558c2-57b3-450e-825e-c5eca57fcd4d",
+        "name": "Test",
+        "description": "Digitized multi-state parallelism",
+        "address": "166 Kozey Cliff",
+        "units_attributes": [
+          {
+            "id": "69effa23-94e6-4168-a353-f83b87e32e63",
+            "number": 213,
+            "area": "Paradise Place"
+          }
+        ]
+      },
+      "response_data": {
+        "id": "101558c2-57b3-450e-825e-c5eca57fcd4d",
+        "name": "Test",
+        "description": "Digitized multi-state parallelism",
+        "address": "166 Kozey Cliff",
+        "units": [
+          {
+            "id": "69effa23-94e6-4168-a353-f83b87e32e63",
+            "number": 213,
+            "area": "Paradise Place"
+          }
+        ]
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "v1-units#destroy": [
+    {
+      "verb": "DELETE",
+      "path": "/api/v1/properties/723235c2-db88-4318-a126-184cda54529c/units/5f35adca-622b-4806-9af9-c4cc227a3a55",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+      },
+      "response_data": {
+        "id": "5f35adca-622b-4806-9af9-c4cc227a3a55",
+        "number": 50,
+        "area": "Paradise Creek"
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "v1-units#update": [
+    {
+      "verb": "PUT",
+      "path": "/api/v1/properties/c3df009f-bf11-4bea-bc73-86a14f14d075/units/bc1e51d6-8f27-4c2c-8930-10db64095a11",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "id": "bc1e51d6-8f27-4c2c-8930-10db64095a11",
+        "number": 213,
+        "area": "Area Test"
+      },
+      "response_data": {
+        "id": "bc1e51d6-8f27-4c2c-8930-10db64095a11",
+        "number": 213,
+        "area": "Area Test"
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
 import UnitsTable from './UnitsTable'
+import UnitsToggler from './UnitsToggler'
 
 const PropertyRow = props => {
   const [showUnits, setShowUnits] = useState(false)
-  const icon = showUnits ? 'fa-minus-square' : 'fa-plus-square'
 
   const onClickUnits = (e) => {
     e.preventDefault()
@@ -15,11 +15,11 @@ const PropertyRow = props => {
     <>
       <tr>
         <td>
-          <a href="#" onClick={onClickUnits}>
-            <i className={`fa mr-1 ${icon}`}></i>
-            Units
-            <small className="text-muted ml-1">({props.property.units.length})</small>
-          </a>
+          <UnitsToggler
+            unitsCount={props.property.units.length}
+            expanded={showUnits}
+            onClick={onClickUnits}
+          />
         </td>
         <td>{props.property.name}</td>
         <td>{props.property.description}</td>

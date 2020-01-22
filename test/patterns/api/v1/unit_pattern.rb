@@ -22,7 +22,7 @@ class Api::V1::UnitPattern < Pattern
 
   def pattern_template(unit)
     {
-      id: unit.id,
+      id: wildcard_matcher,
       number: unit.number,
       area: unit.area
     }

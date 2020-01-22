@@ -22,7 +22,7 @@ class Api::V1::PropertyPattern < Pattern
 
   def pattern_template(property)
     {
-      id: property.id,
+      id: wildcard_matcher,
       name: property.name,
       description: property.description,
       address: property.address,

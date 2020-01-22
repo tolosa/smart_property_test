@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2020_01_19_145625) do
   end
 
   create_table "units", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.bigint "property_id", null: false
+    t.uuid "property_id", null: false
     t.integer "number", null: false
     t.string "area", null: false
     t.datetime "created_at", precision: 6, null: false

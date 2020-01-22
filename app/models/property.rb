@@ -3,6 +3,8 @@ class Property < ApplicationRecord
 
   validates :name, :address, presence: true
 
-  default_scope { where(archived: false) }
+  accepts_nested_attributes_for :units
+
   scope :archived, -> { unscoped.where(archived: true) }
+  scope :active, -> { unscoped.where(archived: false) }
 end

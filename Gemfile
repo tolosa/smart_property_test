@@ -25,8 +25,8 @@ gem 'factory_bot_rails', '~> 4.0'
 gem 'faker'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry'
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -39,8 +39,6 @@ group :development do
 end
 
 group :test do
-  gem 'pry'
-  gem 'pry-byebug'
   gem 'minitest'
   gem 'minitest-rails'
   gem 'minitest-spec-rails'

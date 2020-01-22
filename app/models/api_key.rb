@@ -1,5 +1,5 @@
 class ApiKey < ApplicationRecord
-  before_create :generate_authentication_token
+  before_create :generate_authentication_token, unless: :token
 
   belongs_to :tenant
 

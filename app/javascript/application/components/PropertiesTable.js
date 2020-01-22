@@ -7,6 +7,7 @@ const PropertiesTable = props => {
     <table className="table mt-5">
       <thead>
         <tr>
+          <th />
           <th>Name</th>
           <th>Description</th>
           <th>Address</th>

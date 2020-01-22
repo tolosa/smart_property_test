@@ -5,6 +5,7 @@ require 'rails/test_help'
 require 'minitest/spec'
 require 'json_expressions/minitest'
 
+require_relative './integration/api/api_integration_test.rb'
 
 class ActiveSupport::TestCase
   include AbstractController::Translation

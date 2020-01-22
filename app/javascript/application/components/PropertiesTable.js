@@ -4,7 +4,7 @@ import PropertyRow from './PropertyRow'
 
 const PropertiesTable = props => {
   return (
-    <table className="table mt-5">
+    <table className="table">
       <thead>
         <tr>
           <th />

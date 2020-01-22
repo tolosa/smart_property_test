@@ -10,11 +10,10 @@ import {
 } from 'reactstrap'
 import './style.css'
 
-import UnitItem from './unit-item'
-import UnitModal from '../unit-modal'
+import UnitItem from './UnitItem'
+import UnitModal from '../UnitModal'
 
 const PropertyForm = (props) => {
-  const [submitting, setSubmitting] = useState(false)
   const [currentData, setData] = useState(() => {
     const defaultData = props.data || {}
     return {
@@ -86,9 +85,7 @@ const PropertyForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setSubmitting(true)
     props.onSubmit(currentData)
-    setTimeout(() => setSubmitting(false), 3000)
   }
 
   return (
@@ -151,7 +148,7 @@ const PropertyForm = (props) => {
             onSave={saveUnit}
           />
         </FormGroup>
-        <Button color="primary" size="md">Submit{submitting ? 'ting...' : ''}</Button>
+        <Button color="primary" size="md">Submit{props.submitting ? 'ting...' : ''}</Button>
       </Form>
     </Container>
   )
@@ -159,7 +156,8 @@ const PropertyForm = (props) => {
 
 PropertyForm.propTypes = {
   data: PropTypes.object,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  submitting: PropTypes.bool.isRequired
 }
 
 export default PropertyForm

@@ -4,11 +4,11 @@ import { Switch, Route } from 'react-router-dom'
 
 import { store } from './store'
 
-import Header from './components/header'
-import IndexPage from './pages/index'
-import NewPropertyPage from './pages/new-property'
+import Header from './components/Header'
+import IndexPage from './pages/Index'
+import NewPropertyPage from './pages/NewProperty'
 
-const Index = () => (
+const App = () => (
   <Provider store={store}>
     <Header title="Smart Property Test" />
     <Switch>
@@ -18,4 +18,4 @@ const Index = () => (
   </Provider>
 )
 
-export default Index
+export default App

@@ -1,10 +1,11 @@
 import React from 'react'
+import { Table } from 'reactstrap'
 
 import PropertyRow from './PropertyRow'
 
 const PropertiesTable = props => {
   return (
-    <table className="table">
+    <Table>
       <thead>
         <tr>
           <th />
@@ -18,7 +19,7 @@ const PropertiesTable = props => {
           <PropertyRow property={property} key={property.id} />
         )}
       </tbody>
-    </table>
+    </Table>
   )
 }
 

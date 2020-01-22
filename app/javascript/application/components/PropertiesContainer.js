@@ -1,4 +1,4 @@
-import React,  { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 import PropertiesTable from './PropertiesTable'
@@ -10,7 +10,7 @@ const PropertiesContainer = props => {
 
   useEffect(() => {
     axios
-      .get('/mockup.json')
+      .get('/properties')
       .then(response =>
         setAllProperties(response.data))
   }, [])
@@ -26,7 +26,7 @@ const PropertiesContainer = props => {
     setFilter(e.target.value)
   }
 
-  return(
+  return (
     <div className="container">
       <div className="form-inline my-4">
         <label className="mr-2" htmlFor="selectStatus">Show</label>

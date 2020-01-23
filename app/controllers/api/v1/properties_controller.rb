@@ -3,7 +3,8 @@ class Api::V1::PropertiesController < Api::V1::BaseController
   api :GET, '/v1/properties', 'List all properties'
   ###### End of Documentation #######
   def index
-    @properties = Property.all
+    query = Property.ransack(name_or_address_or_description_or_units_number_or_units_area_cont: params[:filter])
+    @properties = query.result(distinct: true)
   end
 
   ####### Api Documentation #########

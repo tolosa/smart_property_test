@@ -19,9 +19,7 @@ const UnitItem = ({ unit, index, isEdit, onEdit, onRemove }) => {
       <td>{unit.number}</td>
       <td>{unit.area}</td>
       <td className="tableActions">
-        {!isEdit && (
-          <i className="fa fa-lg fa-pencil text-success" onClick={e => editUnit(e, index)} />
-        )}
+        <i className="fa fa-lg fa-pencil text-success" onClick={e => editUnit(e, index)} />
         <i className="fa fa-lg fa-trash text-danger" onClick={e => removeUnit(e, index)} />
       </td>
     </tr>

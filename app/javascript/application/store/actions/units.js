@@ -36,7 +36,11 @@ export const updateUnit = (propertyId, unit) => {
     dispatch(updateUnitLoading())
     try {
       const { id } = unit
-      const updatedUnit = await apiCall('patch', `/properties/${propertyId}/units/${id}`, unit)
+      const body = {
+        number: unit.number,
+        area: unit.area
+      }
+      const updatedUnit = await apiCall('patch', `/properties/${propertyId}/units/${id}`, body)
       dispatch(updateUnitSuccess({ propertyId, updatedUnit }))
     } catch (error) {
       dispatch(updateUnitFailure(error))

@@ -39,7 +39,7 @@ const PropertyRow = props => {
         </td>
         <td>{props.property.description}</td>
         <td>{props.property.address}</td>
-        <td className="tableActions">
+        <td className="actions">
           <Link to={`/properties/${props.property.id}/edit`} title="Edit">
             <i className="fa fa-lg fa-pencil text-success"></i>
           </Link>

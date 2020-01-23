@@ -15,17 +15,16 @@ const UnitItem = ({ unit, index, isEdit, onEdit, onRemove }) => {
   }
 
   return (
-    <div className="unit-form">
-      <p>#{unit.number}</p>
-      <p>{unit.area}</p>
-      <div className="icon-panel">
+    <tr>
+      <td>{unit.number}</td>
+      <td>{unit.area}</td>
+      <td className="tableActions">
         {!isEdit && (
-          <i className="fa fa-pencil" onClick={e => editUnit(e, index)} />
+          <i className="fa fa-lg fa-pencil text-success" onClick={e => editUnit(e, index)} />
         )}
-        <i className="fa fa-trash" onClick={e => removeUnit(e, index)} />
-      </div>
-
-    </div>
+        <i className="fa fa-lg fa-trash text-danger" onClick={e => removeUnit(e, index)} />
+      </td>
+    </tr>
   )
 }
 

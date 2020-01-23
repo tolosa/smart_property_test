@@ -9,6 +9,8 @@ import IndexPage from './pages/Index'
 import NewPropertyPage from './pages/NewProperty'
 import EditPropertyPage from './pages/EditProperty'
 
+import './styles'
+
 const App = () => (
   <Provider store={store}>
     <Header title="Smart Property Test" />

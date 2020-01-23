@@ -93,7 +93,7 @@ const PropertyForm = (props) => {
 
   return (
     <Container className="container">
-      <h2>{props.data ? `Edit ${props.data.name} Property` : 'New Property'}</h2>
+      <h2 className="mb-4">{props.data ? `Edit Property '${props.data.name}'` : 'New Property'}</h2>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <Label for="name">Name</Label>
@@ -133,19 +133,33 @@ const PropertyForm = (props) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label>Units</Label>
-          {currentData.units.map((unit, index) => (
-            <UnitItem
-              key={index}
-              index={index}
-              unit={unit}
-              isEdit={isEdit}
-              onEdit={onUnitEdit}
-              onRemove={onUnitsRemove}
-            />
-          ))}
+          <h3 className="my-4">Units</h3>
+          <table className="table w-50">
+            <thead>
+              <tr>
+                <th className="w-25">Number</th>
+                <th>Area</th>
+                <th />
+              </tr>
+            </thead>
+            <tbody>
+              {currentData.units.map((unit, index) => (
+                <UnitItem
+                  key={index}
+                  index={index}
+                  unit={unit}
+                  isEdit={isEdit}
+                  onEdit={onUnitEdit}
+                  onRemove={onUnitsRemove}
+                />
+              ))}
+            </tbody>
+          </table>
           {!isEdit && (
-            <p className="add-unit" onClick={toggleModal}>+ Add new Unit</p>
+            <a href="#" className="font-weight-bold" onClick={toggleModal}>
+              <i class="fa fa-fw fa-plus-square"></i>
+              Add new Unit
+            </a>
           )}
           <UnitModal
             data={editingItem}

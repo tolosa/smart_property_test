@@ -6,7 +6,8 @@ import {
   ModalBody,
   Button
 } from 'reactstrap'
-import './style.css'
+
+import './style'
 
 const ConfirmModal = props => (
   <Modal isOpen={props.open} toggle={props.toggle}>

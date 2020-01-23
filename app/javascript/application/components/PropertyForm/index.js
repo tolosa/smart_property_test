@@ -8,10 +8,11 @@ import {
   Input,
   Button
 } from 'reactstrap'
-import './style.css'
 
 import UnitItem from './UnitItem'
 import UnitModal from '../UnitModal'
+
+import './style'
 
 const PropertyForm = (props) => {
   const [currentData, setData] = useState(() => {
@@ -66,7 +67,7 @@ const PropertyForm = (props) => {
     } else {
       updateUnit(unit)
     }
-   
+
     toggleModal()
   }
 
@@ -104,7 +105,7 @@ const PropertyForm = (props) => {
             value={currentData.name}
             onChange={onInputChange}
             autoFocus
-            required 
+            required
           />
         </FormGroup>
         <FormGroup>
@@ -121,7 +122,7 @@ const PropertyForm = (props) => {
         </FormGroup>
         <FormGroup>
           <Label for="address">Address</Label>
-          <Input 
+          <Input
             type="text"
             name="address"
             id="address"

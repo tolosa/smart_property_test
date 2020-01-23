@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import './style.css'
 
 import UnitsTable from './UnitsTable'
 import UnitsToggler from './UnitsToggler'

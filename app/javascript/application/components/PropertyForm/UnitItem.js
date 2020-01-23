@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './style.css'
+
+import './style'
 
 const UnitItem = ({ unit, index, isEdit, onEdit, onRemove }) => {
   const editUnit = (e, index) => {
@@ -21,9 +22,9 @@ const UnitItem = ({ unit, index, isEdit, onEdit, onRemove }) => {
         {!isEdit && (
           <i className="fa fa-pencil" onClick={e => editUnit(e, index)} />
         )}
-        <i className="fa fa-trash" onClick={e => removeUnit(e, index)} /> 
+        <i className="fa fa-trash" onClick={e => removeUnit(e, index)} />
       </div>
-      
+
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Container, Button, Spinner, Input } from 'reactstrap'
+import { Container, Button, Spinner, Form, FormGroup, Input } from 'reactstrap'
 
 import {
   fetchProperties,
@@ -14,8 +14,6 @@ import { selectAllProperties, selectLoading } from '../../store/selectors'
 import PropertiesTable from './PropertiesTable'
 import UnitModal from '../UnitModal'
 import ConfirmModal from '../ConfirmModal'
-
-import './style'
 
 const PropertiesContainer = props => {
   const [allProperties, setAllProperties] = useState([])
@@ -108,25 +106,28 @@ const PropertiesContainer = props => {
 
   return (
     <Container>
-      <div className="form-inline my-4 panel">
-        <div className="left-panel">
+      <Form inline className="form-inline justify-content-between">
+        <FormGroup>
+          <Input
+            type="text"
+            placeholder="Search Property"
+            onChange={onSearchChange}
+          />
+          {searchField === '' ? <Button color="primary" disabled>Search</Button> : <Button color="primary" onClick={onSearchSubmit}>Search</Button>}
+          <Button outline color="secondary" onClick={onSearchClear}>Clear</Button>
+        </FormGroup>
+        <FormGroup>
           <label className="mr-2" htmlFor="selectStatus">Show</label>
-          <select className="custom-select margin-right" onChange={onFilterChange} id="selectStatus">
+          <select className="custom-select" onChange={onFilterChange} id="selectStatus">
             <option value={0}>Unarchived</option>
             <option value={1}>Archived</option>
           </select>
-          <div>
-            <Input
-              type="text"
-              placeholder="Search Property"
-              onChange={onSearchChange}
-            />
-            {searchField === '' ? <Button color="info" disabled>Search</Button> : <Button color="info" onClick={onSearchSubmit}>Search</Button>}
-            <Button onClick={onSearchClear}>Clear</Button>
-          </div>
-        </div>
-        <Link to="/new-property">
-          <Button color="primary">+ ADD PROPERTY</Button>
+        </FormGroup>
+      </Form>
+      <div className="mb-3">
+        <hr />
+        <Link to="/new-property" className="btn btn-primary">
+          + ADD PROPERTY
         </Link>
       </div>
       {props.loading ? <Spinner />

@@ -34,7 +34,7 @@ class Api::V1::PropertiesController < Api::V1::BaseController
   end
   ###### End of Documentation #######
   def update
-    @property = Property.active.find(params[:id])
+    @property = Property.find(params[:id])
     @property.update(properties_params)
   end
 

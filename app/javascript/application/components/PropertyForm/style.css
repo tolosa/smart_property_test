@@ -1,0 +1,44 @@
+.container {
+  margin-top: 2rem;
+  width: 80%;
+}
+
+.add-unit {
+  color: blue;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+
+.add-unit:hover {
+  opacity: 0.75;
+}
+
+.unit-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 50%;
+  margin-bottom: 1rem;
+}
+
+.unit-form p {
+  margin: 0;
+}
+
+.icon-panel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+i {
+  color: blue;
+  transition: 0.2s all;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+i:hover {
+  opacity: 0.75;
+}

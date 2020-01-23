@@ -1,0 +1,8 @@
+.unit-number {
+  cursor: pointer;
+  transition: 0.2s all;
+}
+
+.unit-number:hover {
+  font-weight: bold;
+}

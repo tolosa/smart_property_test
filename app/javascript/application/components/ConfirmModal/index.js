@@ -4,22 +4,19 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
+  ModalFooter,
   Button
 } from 'reactstrap'
-
-import './style'
 
 const ConfirmModal = props => (
   <Modal isOpen={props.open} toggle={props.toggle}>
     <ModalHeader toggle={props.toggle}>
       Are you sure to perform this action?
     </ModalHeader>
-    <ModalBody>
-      <div className="button-panel">
-        <Button color="primary" onClick={props.onAction}>Ok</Button>
-        <Button onClick={props.toggle}>Cancel</Button>
-      </div>
-    </ModalBody>
+    <ModalFooter>
+      <Button color="primary" onClick={props.onAction} className="px-3">OK</Button>
+      <Button onClick={props.toggle}>Cancel</Button>
+    </ModalFooter>
   </Modal>
 )
 

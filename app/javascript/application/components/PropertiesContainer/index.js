@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Container, Button, Spinner, Form, FormGroup, Input } from 'reactstrap'
+import { Container, Button, Spinner, Form, FormGroup, Label, Input } from 'reactstrap'
 
 import {
   fetchProperties,
@@ -110,14 +110,15 @@ const PropertiesContainer = props => {
         <FormGroup>
           <Input
             type="text"
-            placeholder="Search Property"
+            className="mr-1"
+            placeholder="Search properties"
             onChange={onSearchChange}
           />
-          {searchField === '' ? <Button color="primary" disabled>Search</Button> : <Button color="primary" onClick={onSearchSubmit}>Search</Button>}
-          <Button outline color="secondary" onClick={onSearchClear}>Clear</Button>
+          <Button color="primary" onClick={onSearchSubmit} disabled={searchField === ''}>Search</Button>
+          <Button outline color="secondary" className="ml-1" onClick={onSearchClear}>Clear</Button>
         </FormGroup>
         <FormGroup>
-          <label className="mr-2" htmlFor="selectStatus">Show</label>
+          <Label className="mr-2" for="selectStatus">Show</Label>
           <select className="custom-select" onChange={onFilterChange} id="selectStatus">
             <option value={0}>Unarchived</option>
             <option value={1}>Archived</option>

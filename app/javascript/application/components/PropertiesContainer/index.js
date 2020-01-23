@@ -32,8 +32,11 @@ const PropertiesContainer = props => {
   }, [])
 
   useEffect(() => {
-    setAllProperties(props.properties)
-  }, [props.properties])
+    if (!props.loading) {
+      setAllProperties(props.properties)
+      setFiltered(filterProperties(allProperties))
+    }
+  }, [props.properties, props.loading])
 
   useEffect(() => {
     setFiltered(filterProperties(allProperties))

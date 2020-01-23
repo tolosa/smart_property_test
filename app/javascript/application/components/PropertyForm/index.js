@@ -153,12 +153,10 @@ const PropertyForm = (props) => {
               ))}
             </tbody>
           </table>
-          {!isEdit && (
-            <a href="#" className="font-weight-bold" onClick={toggleModal}>
-              <i class="fa fa-fw fa-plus-square"></i>
-              Add new Unit
-            </a>
-          )}
+          <a href="#" className="text-uppercase font-weight-bold" onClick={toggleModal}>
+            <i class="fa fa-fw fa-plus-square"></i>
+            Add new Unit
+          </a>
           <UnitModal
             data={editingItem}
             open={openModal}

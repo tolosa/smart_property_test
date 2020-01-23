@@ -154,7 +154,7 @@ const PropertyForm = (props) => {
             </tbody>
           </table>
           <a href="#" className="text-uppercase font-weight-bold" onClick={toggleModal}>
-            <i class="fa fa-fw fa-plus-square"></i>
+            <i className="fa fa-fw fa-plus-square"></i>
             Add new Unit
           </a>
           <UnitModal

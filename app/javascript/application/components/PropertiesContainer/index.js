@@ -3,14 +3,18 @@ import { connect, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Container, Button, Spinner } from 'reactstrap'
 
-import { fetchProperties } from '../../store/actions'
+import { fetchProperties, updateUnit } from '../../store/actions'
 import { selectAllProperties, selectLoading } from '../../store/selectors'
 import PropertiesTable from './PropertiesTable'
+import UnitModal from '../UnitModal'
 
 const PropertiesContainer = props => {
   const [allProperties, setAllProperties] = useState([])
   const [filtered, setFiltered] = useState([])
   const [filter, setFilter] = useState(false)
+  const [openModal, setOpenModal] = useState(false)
+  const [propertyId, setPropertyId] = useState(null)
+  const [editingItem, setEditingItem] = useState(null)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -32,6 +36,27 @@ const PropertiesContainer = props => {
     setFilter(e.target.value)
   }
 
+  const toggleModal = () => {
+    if (openModal) {
+      setPropertyId(null)
+      setEditingItem(null)
+    }
+    setOpenModal(!openModal)
+  }
+
+  const onEditUnit = (id, index) => {
+    const property = filtered.find(property => property.id === id)
+    const unit = property.units[index]
+    setPropertyId(property.id)
+    setEditingItem(unit)
+    toggleModal()
+  }
+
+  const onUpdateUnit = updatedUnit => {
+    dispatch(updateUnit(propertyId, updatedUnit))
+    toggleModal()
+  }
+
   return (
     <Container>
       <div className="form-inline my-4">
@@ -45,8 +70,14 @@ const PropertiesContainer = props => {
         </Link>
       </div>
       {props.loading ? <Spinner />
-        : <PropertiesTable properties={filtered} />
+        : <PropertiesTable properties={filtered} onEdit={onEditUnit} />
       }
+      <UnitModal 
+        data={editingItem}
+        open={openModal}
+        toggle={toggleModal}
+        onSave={onUpdateUnit}
+      />
     </Container>
   )
 }

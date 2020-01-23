@@ -12,6 +12,10 @@ const PropertyRow = props => {
     setShowUnits(!showUnits)
   }
 
+  const onEdit = index => {
+    props.onEdit(props.property.id, index)
+  }
+
   return (
     <>
       <tr>
@@ -33,7 +37,7 @@ const PropertyRow = props => {
       <tr>
         { showUnits &&
           <td colSpan="4">
-            <UnitsTable units={props.property.units} />
+            <UnitsTable units={props.property.units} onEdit={onEdit} />
           </td>
         }
       </tr>

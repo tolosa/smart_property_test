@@ -45,13 +45,11 @@ export const updateUnit = (propertyId, unit) => {
 }
 
 export const deleteUnit = (propertyId, idToDelete) => {
-  console.log('ID TO DELETE', idToDelete)
   return async dispatch => {
     try {
       const deletedUnit = await apiCall('delete', `/properties/${propertyId}/units/${idToDelete}`)
       dispatch(deleteUnitSuccess({ propertyId, deletedUnit }))
     } catch (error) {
-      console.log('ERROR', error)
       dispatch(deleteUnitFailure(error))
     }
   }

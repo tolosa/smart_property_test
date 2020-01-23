@@ -16,7 +16,7 @@ const PropertiesTable = props => {
       </thead>
       <tbody>
         {props.properties.map((property, index) =>
-          <PropertyRow property={property} key={property.id} />
+          <PropertyRow property={property} key={property.id} onEdit={props.onEdit} />
         )}
       </tbody>
     </Table>

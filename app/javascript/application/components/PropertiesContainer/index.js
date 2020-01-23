@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Container, Button, Spinner, Input } from 'reactstrap'
-import './style.css'
 
-import { 
+import {
   fetchProperties,
   updateUnit,
   archiveProperty,
@@ -15,6 +14,8 @@ import { selectAllProperties, selectLoading } from '../../store/selectors'
 import PropertiesTable from './PropertiesTable'
 import UnitModal from '../UnitModal'
 import ConfirmModal from '../ConfirmModal'
+
+import './style'
 
 const PropertiesContainer = props => {
   const [allProperties, setAllProperties] = useState([])
@@ -131,13 +132,13 @@ const PropertiesContainer = props => {
       {props.loading ? <Spinner />
         : <PropertiesTable properties={filtered} onEdit={onEditUnit} onArchiveOrRestore={onArchiveRestoreAction} />
       }
-      <UnitModal 
+      <UnitModal
         data={editingItem}
         open={openModal}
         toggle={toggleModal}
         onSave={onUpdateUnit}
       />
-      <ConfirmModal 
+      <ConfirmModal
         open={confirmModalOpen}
         toggle={toggleConfirmModal}
         onAction={archiveOrRestore}

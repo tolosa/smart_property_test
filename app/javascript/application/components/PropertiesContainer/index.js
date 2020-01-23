@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Container, Button, Spinner, Input } from 'reactstrap'
+import './style.css'
 
 import { 
   fetchProperties,
@@ -106,19 +107,23 @@ const PropertiesContainer = props => {
 
   return (
     <Container>
-      <div className="form-inline my-4">
-        <label className="mr-2" htmlFor="selectStatus">Show</label>
-        <select className="custom-select" onChange={onFilterChange} id="selectStatus">
-          <option value={0}>Unarchived</option>
-          <option value={1}>Archived</option>
-        </select>
-        <Input
-          type="text"
-          placeholder="Search Property"
-          onChange={onSearchChange}
-        />
-        {searchField === '' ? <Button color="info" disabled>Search</Button> : <Button color="info" onClick={onSearchSubmit}>Search</Button>}
-        <Button onClick={onSearchClear}>Clear</Button>
+      <div className="form-inline my-4 panel">
+        <div className="left-panel">
+          <label className="mr-2" htmlFor="selectStatus">Show</label>
+          <select className="custom-select margin-right" onChange={onFilterChange} id="selectStatus">
+            <option value={0}>Unarchived</option>
+            <option value={1}>Archived</option>
+          </select>
+          <div>
+            <Input
+              type="text"
+              placeholder="Search Property"
+              onChange={onSearchChange}
+            />
+            {searchField === '' ? <Button color="info" disabled>Search</Button> : <Button color="info" onClick={onSearchSubmit}>Search</Button>}
+            <Button onClick={onSearchClear}>Clear</Button>
+          </div>
+        </div>
         <Link to="/new-property">
           <Button color="primary">+ ADD PROPERTY</Button>
         </Link>

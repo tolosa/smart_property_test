@@ -8,3 +8,18 @@
 .unit-number:hover {
   font-weight: bold;
 }
+
+.panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.left-panel {
+  display: flex;
+  flex-direction: row;
+}
+
+.margin-right {
+  margin-right: 1rem;
+}

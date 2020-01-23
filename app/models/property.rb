@@ -5,7 +5,7 @@ class Property < ApplicationRecord
 
   accepts_nested_attributes_for :units
 
-  default_scope { includes(:units) }
+  default_scope { order(:id).includes(:units) }
 
   scope :archived, -> { unscoped.where(archived: true) }
   scope :active, -> { unscoped.where(archived: false) }

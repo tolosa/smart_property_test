@@ -17,12 +17,12 @@ const PropertiesTable = props => {
           <th>Name</th>
           <th>Description</th>
           <th>Address</th>
-          <th>Archive/Restore</th>
+          <th />
         </tr>
       </thead>
       <tbody>
         {props.properties.map(property =>
-          <PropertyRow 
+          <PropertyRow
             property={property}
             key={property.id}
             onEdit={props.onEdit}

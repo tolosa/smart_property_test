@@ -39,7 +39,10 @@ const PropertyRow = props => {
         </td>
         <td>{props.property.description}</td>
         <td>{props.property.address}</td>
-        <td className="tableAction">
+        <td className="tableActions">
+          <Link to={`/properties/${props.property.id}/edit`} title="Edit">
+            <i className="fa fa-lg fa-pencil text-success"></i>
+          </Link>
           <a href="#" onClick={onArchiveOrRestore} title={props.property.archived ? 'Restore' : 'Archive'}>
             <i className={`fa fa-lg ${props.property.archived ? 'fa-recycle text-success' : 'fa-archive text-danger'}`} />
           </a>

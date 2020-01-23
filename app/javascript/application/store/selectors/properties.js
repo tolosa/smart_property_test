@@ -16,3 +16,9 @@ export const selectAllProperties = createSelector(
   [selectProperties],
   properties => properties.properties
 )
+
+export const selectProperty = propertyUrlParam =>
+  createSelector(
+    [selectProperties],
+    properties => properties.properties.find(property => property.id === propertyUrlParam)
+  )

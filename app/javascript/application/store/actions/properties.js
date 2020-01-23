@@ -7,6 +7,7 @@ import {
   CREATE_PROPERTY_SUCCESS,
   CREATE_PROPERTY_FAILURE
 } from './types'
+import { apiCall } from './utils'
 
 export const fetchPropertiesLoading = () => ({
   type: FETCH_PROPERTIES_LOADING
@@ -37,29 +38,26 @@ export const createdPropertyFailure = error => ({
 })
 
 export const fetchProperties = () => {
-  return dispatch => {
+  return async dispatch => {
     dispatch(fetchPropertiesLoading())
-    axios
-      .get('/properties')
-      .then(response => {
-        dispatch(fetchPropertiesSuccess(response.data))
-      })
-      .catch(error => {
-        dispatch(fetchPropertiesFailure(error))
-      })
+    try {
+      const properties = await apiCall('get', '/properties')
+      dispatch(fetchPropertiesSuccess(properties))
+    } catch (error) {
+      dispatch(fetchPropertiesFailure(error))
+    }
   }
 }
 
-export const createProperty = (newProperty) => {
-  return dispatch => {
+export const createProperty = (newProperty, router) => {
+  return async dispatch => {
     dispatch(createdPropertyLoading())
-    axios
-      .post('/properties', newProperty)
-      .then(response => {
-        dispatch(createPropertySuccess(response))
-      })
-      .catch(error => {
-        dispatch(createdPropertyFailure(error))
-      })
+    try {
+      const createdProperty = await apiCall('post', '/properties', newProperty)
+      dispatch(createPropertySuccess(createdProperty))
+      router.push('/')
+    } catch (error) {
+      dispatch(createdPropertyFailure(error))
+    }
   }
 }

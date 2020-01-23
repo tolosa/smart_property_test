@@ -11,8 +11,7 @@ const NewPropertyPage = (props) => {
 
   const addNewProperty = (newProperty) => {
     const formattedProperty = formatProperty(newProperty)
-    dispatch(createProperty(formattedProperty))
-    props.history.push('/')
+    dispatch(createProperty(formattedProperty, props.history))
   }
 
   return (

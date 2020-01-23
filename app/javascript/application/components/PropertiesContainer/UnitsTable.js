@@ -8,20 +8,26 @@ const UnitsTable = props => {
   }
 
   return (
-    <table className="table table-sm table-bordered m-3 ml-4 w-75">
+    <table className="table table-sm m-3 ml-4 w-75 border-bottom">
       <thead>
         <tr>
           <th className="w-25">Number</th>
           <th>Area</th>
+          <th />
         </tr>
       </thead>
       <tbody>
         {props.units.map((unit, index) =>
           <tr key={unit.id}>
-            <td className="unit-number" onClick={e => onEdit(e, index)}>
+            <td className="unit-number">
               {unit.number}
             </td>
             <td>{unit.area}</td>
+            <td className="actions">
+              <a href="#" onClick={e => onEdit(e, index)} title="Edit">
+                <i className="fa fa-lg fa-pencil text-success"></i>
+              </a>
+            </td>
           </tr>
         )}
       </tbody>

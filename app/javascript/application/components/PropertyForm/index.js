@@ -12,8 +12,6 @@ import {
 import UnitItem from './UnitItem'
 import UnitModal from '../UnitModal'
 
-import './style'
-
 const PropertyForm = (props) => {
   const [currentData, setData] = useState(() => {
     const defaultData = props.data || {}

@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import './style'
-
 const UnitItem = ({ unit, index, isEdit, onEdit, onRemove }) => {
   const editUnit = (e, index) => {
     e.preventDefault()

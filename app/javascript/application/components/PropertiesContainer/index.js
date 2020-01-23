@@ -131,7 +131,8 @@ const PropertiesContainer = props => {
       <div className="mb-3">
         <hr />
         <Link to="/new-property" className="btn btn-primary">
-          + ADD PROPERTY
+          <i className="fa fa-plus fa-fw"></i>
+          Add property
         </Link>
       </div>
       {props.loading ? <Spinner />

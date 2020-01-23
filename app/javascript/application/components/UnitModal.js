@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { 
+import {
   Modal,
   ModalHeader,
   ModalBody,
+  ModalFooter,
   FormGroup,
   Label,
   Input,
@@ -64,7 +65,7 @@ const UnitModal = props => {
   return (
     <Modal isOpen={props.open} toggle={props.toggle}>
       <ModalHeader toggle={props.toggle}>
-        {props.data ? 'Edit': 'Add New'} Unit 
+        {props.data ? 'Edit': 'Add New'} Unit
       </ModalHeader>
       <ModalBody>
         <FormGroup>
@@ -81,7 +82,7 @@ const UnitModal = props => {
         </FormGroup>
         <FormGroup>
           <Label for="area">Area</Label>
-          <Input 
+          <Input
             type="text"
             name="area"
             id="area"
@@ -91,9 +92,11 @@ const UnitModal = props => {
             required
           />
         </FormGroup>
-        <Button onClick={handleSave}>Save</Button>
-        {errorMessage && <Alert color="danger">{errorMessage}</Alert>}
       </ModalBody>
+      <ModalFooter>
+        <Button color="primary" onClick={handleSave}>Save</Button>
+        {errorMessage && <Alert color="danger">{errorMessage}</Alert>}
+      </ModalFooter>
     </Modal>
   )
 }

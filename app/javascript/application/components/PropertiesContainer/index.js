@@ -3,10 +3,11 @@ import { connect, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Container, Button, Spinner } from 'reactstrap'
 
-import { fetchProperties, updateUnit } from '../../store/actions'
+import { fetchProperties, updateUnit, archiveProperty, restoreProperty } from '../../store/actions'
 import { selectAllProperties, selectLoading } from '../../store/selectors'
 import PropertiesTable from './PropertiesTable'
 import UnitModal from '../UnitModal'
+import ConfirmModal from '../ConfirmModal'
 
 const PropertiesContainer = props => {
   const [allProperties, setAllProperties] = useState([])
@@ -15,6 +16,8 @@ const PropertiesContainer = props => {
   const [openModal, setOpenModal] = useState(false)
   const [propertyId, setPropertyId] = useState(null)
   const [editingItem, setEditingItem] = useState(null)
+  const [confirmModalOpen, setConfirmModalOpen] = useState(false)
+  const [propertyAchived, setPropertyArchived] = useState(null)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -57,6 +60,29 @@ const PropertiesContainer = props => {
     toggleModal()
   }
 
+  const toggleConfirmModal = () => {
+    if (confirmModalOpen) {
+      setPropertyArchived(null)
+    }
+    setConfirmModalOpen(!confirmModalOpen)
+  }
+
+  const onArchiveRestoreAction = id => {
+    const property = filtered.find(property => property.id === id)
+    setPropertyArchived(property)
+    toggleConfirmModal()
+  }
+
+  const archiveOrRestore = () => {
+    if (!propertyAchived.archived) {
+      dispatch(archiveProperty(propertyAchived.id))
+    } else {
+      dispatch(restoreProperty(propertyAchived.id))
+    }
+    setPropertyArchived(null)
+    toggleConfirmModal()
+  }
+
   return (
     <Container>
       <div className="form-inline my-4">
@@ -70,13 +96,18 @@ const PropertiesContainer = props => {
         </Link>
       </div>
       {props.loading ? <Spinner />
-        : <PropertiesTable properties={filtered} onEdit={onEditUnit} />
+        : <PropertiesTable properties={filtered} onEdit={onEditUnit} onArchiveOrRestore={onArchiveRestoreAction} />
       }
       <UnitModal 
         data={editingItem}
         open={openModal}
         toggle={toggleModal}
         onSave={onUpdateUnit}
+      />
+      <ConfirmModal 
+        open={confirmModalOpen}
+        toggle={toggleConfirmModal}
+        onAction={archiveOrRestore}
       />
     </Container>
   )

@@ -1,8 +1,10 @@
+.archive-restore,
 .unit-number {
   cursor: pointer;
   transition: 0.2s all;
 }
 
+.archive-restore:hover,
 .unit-number:hover {
   font-weight: bold;
 }

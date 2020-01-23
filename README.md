@@ -1,49 +1,54 @@
-# SmartProperties
+# Smart Propery Test
+
+Application also hosted in Heroku at https://smart-property-test.herokuapp.com/.
 
 # Requirements
 
-- Ruby 2.6.5 or rbenv to install the version (`rbenv install` inside the project folder after clonning)
-- Node
+- Ruby 2.6.5
+- PostgreSQL
+- Yarn
 
 # Instalation
 
-Clone the repo 
+Clone the repository:
+
 ```
 git clone https://github.com/jcostello/smart_property_test && cd smart_property_test
 ```
 
-And install rails and dependencies
+Install Rails and dependencies:
 
 ```
 gem install bundle
 bundle install
 ```
-Then copy the database.yml.example to database.yml and set your credentials
+
+Copy the `database.yml.example` file to `database.yml`, and edit it to set your PostgreSQL credentials:
 
 ```
 cp config/database.yml.example config/database.yml
 ```
 
-Install Yarn dependencies
+Install Yarn dependencies:
 
 ```
 yarn install
 ```
 
-Create and migrate your database
+Create and migrate your database:
 
 ```
 bundle exec rake db:create db:migrate db:seed
-# db:seed if optional for seeding some dummy data
+# db:seed if optional, for seeding dummy data
 ```
 
-Run the server
+Run the server:
 
 ```
 bundle exec rails s
 ```
 
-# Running Test
+# Running Tests
 
 ```
 bundle exec rails test
@@ -51,4 +56,4 @@ bundle exec rails test
 
 # API Doc
 
-To see the API documentation go to https://smart-property-test.herokuapp.com/apipie or locally at `localhost:PORT/apipie`
+API documentation available at https://smart-property-test.herokuapp.com/apipie or locally at `localhost:3000/apipie`.

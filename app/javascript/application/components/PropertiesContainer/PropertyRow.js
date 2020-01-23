@@ -44,7 +44,7 @@ const PropertyRow = props => {
             <i className="fa fa-lg fa-pencil text-success"></i>
           </Link>
           <a href="#" onClick={onArchiveOrRestore} title={props.property.archived ? 'Restore' : 'Archive'}>
-            <i className={`fa fa-lg ${props.property.archived ? 'fa-recycle text-success' : 'fa-archive text-danger'}`} />
+            <i className={`fa fa-lg ${props.property.archived ? 'fa-recycle text-warning' : 'fa-archive text-danger'}`} />
           </a>
         </td>
       </tr>

@@ -39,13 +39,15 @@ const PropertyRow = props => {
         </td>
         <td>{props.property.description}</td>
         <td>{props.property.address}</td>
-        <td className="archive-restore" onClick={onArchiveOrRestore}>
-          {props.property.archived ? 'Restore' : 'Archive'}
+        <td className="tableAction">
+          <a href="#" onClick={onArchiveOrRestore} title={props.property.archived ? 'Restore' : 'Archive'}>
+            <i className={`fa fa-lg ${props.property.archived ? 'fa-recycle text-success' : 'fa-archive text-danger'}`} />
+          </a>
         </td>
       </tr>
       <tr>
         { showUnits &&
-          <td colSpan="4">
+          <td colSpan="5">
             <UnitsTable units={props.property.units} onEdit={onEdit} />
           </td>
         }

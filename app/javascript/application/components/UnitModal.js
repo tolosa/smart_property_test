@@ -16,7 +16,7 @@ const defaultUnit = {
   area: ''
 }
 
-const UnitModal = (props) => {
+const UnitModal = props => {
   const [currentData, setData] = useState(() => {
     const defaultData = props.data || {}
     return {
@@ -41,12 +41,16 @@ const UnitModal = (props) => {
     setValue(e.target.name, e.target.value)
   }
 
+  const notify = message => {
+    setErrorMessage(message)
+    setTimeout(() => setErrorMessage(null), 5000)
+  }
+
   const handleSave = (e) => {
     e.preventDefault()
 
     if (currentData.number === '' || currentData.area === '') {
-      setErrorMessage('Please fill the form fields')
-      setTimeout(() => setErrorMessage(null), 5000)
+      notify('Please fill the form fields')
     } else {
       props.onSave(currentData)
       setData(defaultUnit)
@@ -66,7 +70,7 @@ const UnitModal = (props) => {
         <FormGroup>
           <Label for="number">Number</Label>
           <Input 
-            type="text"
+            type="number"
             name="number"
             id="number"
             placeholder="Enter Unit Number"

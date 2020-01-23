@@ -12,7 +12,16 @@ import {
   UPDATE_UNIT_SUCCESS,
   UPDATE_UNIT_FAILURE,
   DELETE_UNIT_SUCCESS,
-  DELETE_UNIT_FAILURE
+  DELETE_UNIT_FAILURE,
+  ARCHIVE_PROPERTY_LOADING,
+  ARCHIVE_PROPERTY_SUCCESS,
+  ARCHIVE_PROPERTY_FAILURE,
+  RESTORE_PROPERTY_LOADING,
+  RESTORE_PROPERTY_SUCCESS,
+  RESTORE_PROPERTY_FAILURE,
+  SEARCH_PROPERTY_LOADING,
+  SEARCH_PROPERTY_SUCCESS,
+  SEARCH_PROPERTY_FAILURE
 } from '../actions'
 import { updateProperty, updateUnit, deleteUnit } from './utils'
 
@@ -29,11 +38,15 @@ export const properties = (state = initialState, action) => {
     case CREATE_PROPERTY_LOADING:
     case UPDATE_PROPERTY_LOADING:
     case UPDATE_UNIT_LOADING:
+    case ARCHIVE_PROPERTY_LOADING:
+    case RESTORE_PROPERTY_LOADING:
+    case SEARCH_PROPERTY_LOADING:
       return {
         ...state,
         loading: true
       }
     case FETCH_PROPERTIES_SUCCESS:
+    case SEARCH_PROPERTY_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -61,11 +74,21 @@ export const properties = (state = initialState, action) => {
         loading: false,
         properties: updateUnit(state.properties, action.payload.propertyId, action.payload.updatedUnit)
       }
+    case ARCHIVE_PROPERTY_SUCCESS:
+    case RESTORE_PROPERTY_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        properties: updateProperty(state.properties, action.payload)
+      }
     case FETCH_PROPERTIES_FAILURE:
     case CREATE_PROPERTY_FAILURE:
     case UPDATE_PROPERTY_FAILURE:
     case UPDATE_UNIT_FAILURE:
     case DELETE_UNIT_FAILURE:
+    case ARCHIVE_PROPERTY_FAILURE:
+    case RESTORE_PROPERTY_FAILURE:
+    case SEARCH_PROPERTY_FAILURE:
       return {
         ...state,
         loading: false,

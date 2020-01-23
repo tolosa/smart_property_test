@@ -7,7 +7,8 @@ import {
   FormGroup,
   Label,
   Input,
-  Button
+  Button,
+  Alert
 } from 'reactstrap'
 
 const defaultUnit = {
@@ -24,6 +25,7 @@ const UnitModal = (props) => {
       ...defaultData
     }
   })
+  const [errorMessage, setErrorMessage] = useState(null)
 
   useEffect(() => {
     if (props.data) {
@@ -41,8 +43,14 @@ const UnitModal = (props) => {
 
   const handleSave = (e) => {
     e.preventDefault()
-    props.onSave(currentData)
-    setData(defaultUnit)
+
+    if (currentData.number === '' || currentData.area === '') {
+      setErrorMessage('Please fill the form fields')
+      setTimeout(() => setErrorMessage(null), 5000)
+    } else {
+      props.onSave(currentData)
+      setData(defaultUnit)
+    }
   }
 
   if (!currentData) {
@@ -80,6 +88,7 @@ const UnitModal = (props) => {
           />
         </FormGroup>
         <Button onClick={handleSave}>Save</Button>
+        {errorMessage && <Alert color="danger">{errorMessage}</Alert>}
       </ModalBody>
     </Modal>
   )

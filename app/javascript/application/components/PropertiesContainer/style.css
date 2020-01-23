@@ -1,8 +1,25 @@
+.archive-restore,
 .unit-number {
   cursor: pointer;
   transition: 0.2s all;
 }
 
+.archive-restore:hover,
 .unit-number:hover {
   font-weight: bold;
+}
+
+.panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.left-panel {
+  display: flex;
+  flex-direction: row;
+}
+
+.margin-right {
+  margin-right: 1rem;
 }

@@ -7,7 +7,16 @@ import {
   CREATE_PROPERTY_FAILURE,
   UPDATE_PROPERTY_LOADING,
   UPDATE_PROPERTY_SUCCESS,
-  UPDATE_PROPERTY_FAILURE
+  UPDATE_PROPERTY_FAILURE,
+  ARCHIVE_PROPERTY_LOADING,
+  ARCHIVE_PROPERTY_SUCCESS,
+  ARCHIVE_PROPERTY_FAILURE,
+  RESTORE_PROPERTY_LOADING,
+  RESTORE_PROPERTY_SUCCESS,
+  RESTORE_PROPERTY_FAILURE,
+  SEARCH_PROPERTY_LOADING,
+  SEARCH_PROPERTY_SUCCESS,
+  SEARCH_PROPERTY_FAILURE
 } from './types'
 import { apiCall } from './utils'
 
@@ -53,6 +62,48 @@ export const updatePropertyFailure = error => ({
   payload: error
 })
 
+export const archivePropertyLoading = () => ({
+  type: ARCHIVE_PROPERTY_LOADING
+})
+
+export const archivePropertySuccess = archivedProperty => ({
+  type: ARCHIVE_PROPERTY_SUCCESS,
+  payload: archivedProperty
+})
+
+export const archivePropertyFailure = error => ({
+  type: ARCHIVE_PROPERTY_FAILURE,
+  payload: error
+})
+
+export const restorePropertyLoading = () => ({
+  type: RESTORE_PROPERTY_LOADING
+})
+
+export const restorePropertySuccess = restoredProperty => ({
+  type: RESTORE_PROPERTY_SUCCESS,
+  payload: restoredProperty
+})
+
+export const restorePropertyFailure = error => ({
+  type: RESTORE_PROPERTY_FAILURE,
+  payload: error
+})
+
+export const searchPropertyLoading = () => ({
+  type: SEARCH_PROPERTY_LOADING
+})
+
+export const searchPropertySuccess = property => ({
+  type: SEARCH_PROPERTY_SUCCESS,
+  payload: property
+})
+
+export const searchPropertyFailure = error => ({
+  type: SEARCH_PROPERTY_FAILURE,
+  payload: error
+})
+
 export const fetchProperties = () => {
   return async dispatch => {
     dispatch(fetchPropertiesLoading())
@@ -88,6 +139,42 @@ export const updateProperty = (propertyToUpdate, router) => {
       router.push('/')
     } catch (error) {
       dispatch(updatePropertyFailure(error))
+    }
+  }
+}
+
+export const archiveProperty = id => {
+  return async dispatch => {
+    dispatch(archivePropertyLoading())
+    try {
+      const archivedProperty = await apiCall('post', `/properties/${id}/archive`)
+      dispatch(archivePropertySuccess(archivedProperty))
+    } catch (error) {
+      dispatch(archivePropertyFailure(error))
+    }
+  }
+}
+
+export const restoreProperty = id => {
+  return async dispatch => {
+    dispatch(restorePropertyLoading())
+    try {
+      const restoredProperty = await apiCall('post', `/properties/${id}/restore`)
+      dispatch(restorePropertySuccess(restoredProperty))
+    } catch (error) {
+      dispatch(restorePropertyFailure(error))
+    }
+  }
+}
+
+export const searchProperty = value => {
+  return async dispatch => {
+    dispatch(searchPropertyLoading())
+    try {
+      const property = await apiCall('get', `/properties?filter=${value}`)
+      dispatch(searchPropertySuccess(property))
+    } catch (error) {
+      dispatch(searchPropertyFailure(error))
     }
   }
 }

@@ -7,5 +7,8 @@ const noIntersection = (item, units) => {
 }
 
 export const unitsDifference = (prevUnits, actualUnits) => {
-  return prevUnits.filter(unit => noIntersection(unit, actualUnits))
+  const difference = prevUnits.filter(unit => noIntersection(unit, actualUnits))
+  const actualUnitsIds = actualUnits.map(unit => unit.id)
+
+  return difference.filter(unit => !actualUnitsIds.includes(unit.id))
 }

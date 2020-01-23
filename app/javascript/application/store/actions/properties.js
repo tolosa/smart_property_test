@@ -134,7 +134,13 @@ export const updateProperty = (propertyToUpdate, router) => {
     dispatch(updatePropertyLoading())
     try {
       const { id } = propertyToUpdate
-      const updatedProperty = await apiCall('patch', `/properties/${id}`, propertyToUpdate)
+      const body = {
+        name: propertyToUpdate.name,
+        description: propertyToUpdate.description,
+        address: propertyToUpdate.address,
+        'units_attributes': propertyToUpdate.units
+      }
+      const updatedProperty = await apiCall('patch', `/properties/${id}`, body)
       dispatch(updatePropertySuccess(updatedProperty))
       router.push('/')
     } catch (error) {

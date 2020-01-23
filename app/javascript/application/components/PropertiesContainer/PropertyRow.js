@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import UnitsTable from './UnitsTable'
 import UnitsToggler from './UnitsToggler'
@@ -21,7 +22,11 @@ const PropertyRow = props => {
             onClick={onClickUnits}
           />
         </td>
-        <td>{props.property.name}</td>
+        <td>
+          <Link to={`/properties/${props.property.id}/edit`}>
+            {props.property.name}
+          </Link>
+        </td>
         <td>{props.property.description}</td>
         <td>{props.property.address}</td>
       </tr>

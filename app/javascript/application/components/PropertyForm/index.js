@@ -28,6 +28,8 @@ const PropertyForm = (props) => {
   const [editingItem, setEditingItem] = useState(null)
   const [editingIndex, setEditingIndex] = useState(null)
 
+  const isEdit = !!props.data
+
   const toggleModal = () => {
     if (openModal) {
       setEditingIndex(null)
@@ -90,7 +92,7 @@ const PropertyForm = (props) => {
 
   return (
     <Container className="container">
-      <h2>New Property</h2>
+      <h2>{props.data ? `Edit ${props.data.name} Property` : 'New Property'}</h2>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <Label for="name">Name</Label>
@@ -136,11 +138,14 @@ const PropertyForm = (props) => {
               key={index}
               index={index}
               unit={unit}
+              isEdit={isEdit}
               onEdit={onUnitEdit}
               onRemove={onUnitsRemove}
             />
           ))}
-          <p className="add-unit" onClick={toggleModal}>+ Add new Unit</p>
+          {!isEdit && (
+            <p className="add-unit" onClick={toggleModal}>+ Add new Unit</p>
+          )}
           <UnitModal
             data={editingItem}
             open={openModal}

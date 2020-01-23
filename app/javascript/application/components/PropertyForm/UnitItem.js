@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './style.css'
 
-const UnitItem = ({ unit, index, onEdit, onRemove }) => {
+const UnitItem = ({ unit, index, isEdit, onEdit, onRemove }) => {
   const editUnit = (e, index) => {
     e.preventDefault()
     onEdit(index)
@@ -18,7 +18,9 @@ const UnitItem = ({ unit, index, onEdit, onRemove }) => {
       <p>#{unit.number}</p>
       <p>{unit.area}</p>
       <div className="icon-panel">
-        <i className="fa fa-pencil" onClick={e => editUnit(e, index)} />
+        {!isEdit && (
+          <i className="fa fa-pencil" onClick={e => editUnit(e, index)} />
+        )}
         <i className="fa fa-trash" onClick={e => removeUnit(e, index)} /> 
       </div>
       
@@ -29,6 +31,7 @@ const UnitItem = ({ unit, index, onEdit, onRemove }) => {
 UnitItem.propTypes = {
   unit: PropTypes.object.isRequired,
   index: PropTypes.number.isRequired,
+  isEdit: PropTypes.bool.isRequired,
   onEdit: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired
 }

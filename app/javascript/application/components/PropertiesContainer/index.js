@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Container, Button, Spinner } from 'reactstrap'
+import { Container, Button, Spinner, Input } from 'reactstrap'
 
-import { fetchProperties, updateUnit, archiveProperty, restoreProperty } from '../../store/actions'
+import { 
+  fetchProperties,
+  updateUnit,
+  archiveProperty,
+  restoreProperty,
+  searchProperty
+} from '../../store/actions'
 import { selectAllProperties, selectLoading } from '../../store/selectors'
 import PropertiesTable from './PropertiesTable'
 import UnitModal from '../UnitModal'
@@ -18,6 +24,7 @@ const PropertiesContainer = props => {
   const [editingItem, setEditingItem] = useState(null)
   const [confirmModalOpen, setConfirmModalOpen] = useState(false)
   const [propertyAchived, setPropertyArchived] = useState(null)
+  const [searchField, setSearchField] = useState('')
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -83,6 +90,20 @@ const PropertiesContainer = props => {
     toggleConfirmModal()
   }
 
+  const onSearchChange = e => {
+    setSearchField(e.target.value)
+  }
+
+  const onSearchSubmit = e => {
+    e.preventDefault()
+    dispatch(searchProperty(searchField))
+  }
+
+  const onSearchClear = e => {
+    e.preventDefault()
+    dispatch(fetchProperties())
+  }
+
   return (
     <Container>
       <div className="form-inline my-4">
@@ -91,8 +112,15 @@ const PropertiesContainer = props => {
           <option value={0}>Unarchived</option>
           <option value={1}>Archived</option>
         </select>
+        <Input
+          type="text"
+          placeholder="Search Property"
+          onChange={onSearchChange}
+        />
+        {searchField === '' ? <Button color="info" disabled>Search</Button> : <Button color="info" onClick={onSearchSubmit}>Search</Button>}
+        <Button onClick={onSearchClear}>Clear</Button>
         <Link to="/new-property">
-          <Button color="info">+ ADD PROPERTY</Button>
+          <Button color="primary">+ ADD PROPERTY</Button>
         </Link>
       </div>
       {props.loading ? <Spinner />

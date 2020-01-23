@@ -41,7 +41,7 @@ const UnitModal = (props) => {
     setValue(e.target.name, e.target.value)
   }
 
-    const handleSave = (e) => {
+  const handleSave = (e) => {
     e.preventDefault()
 
     if (currentData.number === '' || currentData.area === '') {

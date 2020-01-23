@@ -13,7 +13,10 @@ import {
   ARCHIVE_PROPERTY_FAILURE,
   RESTORE_PROPERTY_LOADING,
   RESTORE_PROPERTY_SUCCESS,
-  RESTORE_PROPERTY_FAILURE
+  RESTORE_PROPERTY_FAILURE,
+  SEARCH_PROPERTY_LOADING,
+  SEARCH_PROPERTY_SUCCESS,
+  SEARCH_PROPERTY_FAILURE
 } from './types'
 import { apiCall } from './utils'
 
@@ -87,6 +90,20 @@ export const restorePropertyFailure = error => ({
   payload: error
 })
 
+export const searchPropertyLoading = () => ({
+  type: SEARCH_PROPERTY_LOADING
+})
+
+export const searchPropertySuccess = property => ({
+  type: SEARCH_PROPERTY_SUCCESS,
+  payload: property
+})
+
+export const searchPropertyFailure = error => ({
+  type: SEARCH_PROPERTY_FAILURE,
+  payload: error
+})
+
 export const fetchProperties = () => {
   return async dispatch => {
     dispatch(fetchPropertiesLoading())
@@ -146,6 +163,18 @@ export const restoreProperty = id => {
       dispatch(restorePropertySuccess(restoredProperty))
     } catch (error) {
       dispatch(restorePropertyFailure(error))
+    }
+  }
+}
+
+export const searchProperty = value => {
+  return async dispatch => {
+    dispatch(searchPropertyLoading())
+    try {
+      const property = await apiCall('get', `/properties?filter=${value}`)
+      dispatch(searchPropertySuccess(property))
+    } catch (error) {
+      dispatch(searchPropertyFailure(error))
     }
   }
 }

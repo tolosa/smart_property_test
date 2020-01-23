@@ -18,7 +18,10 @@ import {
   ARCHIVE_PROPERTY_FAILURE,
   RESTORE_PROPERTY_LOADING,
   RESTORE_PROPERTY_SUCCESS,
-  RESTORE_PROPERTY_FAILURE
+  RESTORE_PROPERTY_FAILURE,
+  SEARCH_PROPERTY_LOADING,
+  SEARCH_PROPERTY_SUCCESS,
+  SEARCH_PROPERTY_FAILURE
 } from '../actions'
 import { updateProperty, updateUnit, deleteUnit } from './utils'
 
@@ -37,11 +40,13 @@ export const properties = (state = initialState, action) => {
     case UPDATE_UNIT_LOADING:
     case ARCHIVE_PROPERTY_LOADING:
     case RESTORE_PROPERTY_LOADING:
+    case SEARCH_PROPERTY_LOADING:
       return {
         ...state,
         loading: true
       }
     case FETCH_PROPERTIES_SUCCESS:
+    case SEARCH_PROPERTY_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -83,6 +88,7 @@ export const properties = (state = initialState, action) => {
     case DELETE_UNIT_FAILURE:
     case ARCHIVE_PROPERTY_FAILURE:
     case RESTORE_PROPERTY_FAILURE:
+    case SEARCH_PROPERTY_FAILURE:
       return {
         ...state,
         loading: false,
